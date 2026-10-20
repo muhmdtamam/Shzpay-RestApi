@@ -1,0 +1,51 @@
+.policy-layout { display: grid; grid-template-columns: 220px 1fr; gap: 20px; align-items: flex-start; }
+  .toc { position: sticky; top: calc(var(--topbar-h) + 20px); padding: 16px; }
+  .toc-title { font-size: 0.82rem; font-weight: 600; color: var(--ink-faint); margin-bottom: 10px; }
+  .toc a {
+    display: block; font-size: 0.83rem; color: var(--ink-soft); padding: 7px 8px; border-radius: 8px;
+    transition: background 0.15s var(--ease), color 0.15s var(--ease);
+  }
+  .toc a:hover { background: var(--surface); color: var(--ink); }
+
+  .policy-section { padding: 26px 26px; border-bottom: 1px solid var(--border); scroll-margin-top: var(--topbar-h); }
+  .policy-section:last-child { border-bottom: none; }
+  .policy-section h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; scroll-margin-top: calc(var(--topbar-h) + 16px); }
+  .policy-section p { font-size: 0.88rem; margin-bottom: 12px; }
+  .policy-section p:last-child { margin-bottom: 0; }
+  .policy-list { margin: 0 0 12px; padding-left: 0; }
+  .policy-list li {
+    position: relative; padding-left: 22px; font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 8px; line-height: 1.55;
+  }
+  .policy-list li::before {
+    content: ""; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; border-radius: 50%; background: var(--indigo);
+  }
+  .policy-list.no li::before { background: var(--red); }
+  .policy-list.yes li::before { background: var(--mint); }
+
+  .rate-table th {
+    text-align: left; font-size: 0.78rem; font-weight: 600;
+    color: var(--ink-faint); padding: 9px 12px; border-bottom: 1px solid var(--border);
+  }
+  .rate-table td { padding: 11px 12px; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+  .rate-table tr:last-child td { border-bottom: none; }
+
+  .contact-card {
+    display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 14px; margin-top: 4px;
+  }
+  .contact-card .ico {
+    width: 38px; height: 38px; border-radius: 10px; background: var(--indigo); color: var(--white);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .contact-card b { display: block; font-size: 0.88rem; }
+  .contact-card span { font-size: 0.8rem; color: var(--ink-soft); }
+
+  @media (max-width: 980px) {
+    .policy-layout { grid-template-columns: 1fr; }
+    .toc { position: static; display: flex; flex-wrap: wrap; gap: 4px; padding: 12px; }
+    .toc-title { display: none; }
+    .toc a { padding: 6px 10px; background: var(--surface); border-radius: 8px; }
+  }
+  @media (max-width: 560px) {
+    .policy-section { padding: 20px 18px; }
+  }

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHZPAY — REST API Terpadu untuk Bot dan Automasi</title>
+<meta name="description" content="SHZPAY menyediakan REST API terpadu untuk kebutuhan pengunduh media dan kecerdasan buatan.">
+
+<meta property="og:title" content="SHZPAY — REST API Terpadu untuk Bot dan Automasi">
+<meta property="og:description" content="SHZPAY menyediakan REST API terpadu untuk kebutuhan pengunduh media dan kecerdasan buatan.">
+<meta property="og:image" content="assets/img/foto.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SHZPAY — REST API Terpadu untuk Bot dan Automasi">
+<meta name="twitter:image" content="assets/img/foto.webp">
+<link rel="icon" type="image/svg+xml" href="assets/img/icon.svg">
+<link rel="alternate icon" href="assets/img/icon.svg">
+<link rel="mask-icon" href="assets/img/icon.svg" color="#0284c7">
+<link rel="apple-touch-icon" href="assets/img/icon.svg">
+<link rel="shortcut icon" href="assets/img/icon.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/landing.css">
+<link rel="stylesheet" href="assets/css/fab-gratitude.css">
+<link rel="stylesheet" href="assets/css/loader.css">
+</head>
+<body>
+<div class="page-loader" id="pageLoader" aria-hidden="true">
+  <div class="loader-mark">
+    <svg viewBox="0 0 24 24">
+      <defs>
+        <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0284c7"></stop>
+          <stop offset="100%" stop-color="#06b6d4"></stop>
+        </linearGradient>
+      </defs>
+      <rect width="24" height="24" rx="7" fill="url(#loaderGrad)"></rect>
+      <path d="M5 5 L13.4 5 L19 10.6 L19 19 L10.6 19 L5 13.4 Z" fill="#ffffff"></path>
+    </svg>
+  </div>
+  <div class="loader-waves">
+    <svg class="loader-wave loader-wave-back" viewBox="0 0 2400 120" preserveAspectRatio="none">
+      <path d="M0,50 C37.5,30 112.5,30 150,50 C187.5,70 262.5,70 300,50 C337.5,30 412.5,30 450,50 C487.5,70 562.5,70 600,50 C637.5,30 712.5,30 750,50 C787.5,70 862.5,70 900,50 C937.5,30 1012.5,30 1050,50 C1087.5,70 1162.5,70 1200,50 C1237.5,30 1312.5,30 1350,50 C1387.5,70 1462.5,70 1500,50 C1537.5,30 1612.5,30 1650,50 C1687.5,70 1762.5,70 1800,50 C1837.5,30 1912.5,30 1950,50 C1987.5,70 2062.5,70 2100,50 C2137.5,30 2212.5,30 2250,50 C2287.5,70 2362.5,70 2400,50 L2400,120 L0,120 Z"></path>
+    </svg>
+    <svg class="loader-wave loader-wave-front" viewBox="0 0 2400 120" preserveAspectRatio="none">
+      <path d="M0,60 C37.5,40 112.5,40 150,60 C187.5,80 262.5,80 300,60 C337.5,40 412.5,40 450,60 C487.5,80 562.5,80 600,60 C637.5,40 712.5,40 750,60 C787.5,80 862.5,80 900,60 C937.5,40 1012.5,40 1050,60 C1087.5,80 1162.5,80 1200,60 C1237.5,40 1312.5,40 1350,60 C1387.5,80 1462.5,80 1500,60 C1537.5,40 1612.5,40 1650,60 C1687.5,80 1762.5,80 1800,60 C1837.5,40 1912.5,40 1950,60 C1987.5,80 2062.5,80 2100,60 C2137.5,40 2212.5,40 2250,60 C2287.5,80 2362.5,80 2400,60 L2400,120 L0,120 Z"></path>
+    </svg>
+  </div>
+</div>
+<script src="assets/js/loader.js"></script>
+
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">SHZPAY</span>
+    </a>
+    <nav class="nav-links">
+      <a href="docs.html">Dokumentasi</a>
+      <a href="playground.html">Coba API</a>
+      <a href="policy.html">Kebijakan</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="dashboard.html" class="btn btn-primary">Mulai</a>
+    </div>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy" data-reveal>
+      <p class="eyebrow">Open & Free REST API Infrastructure</p>
+      <h1 class="hero-title">
+      Reliable REST API for Automation & Web Apps
+      </h1>
+      <p class="hero-sub">
+      Manage data retrieval, media processing, and notification delivery through our platform. </p>
+      <div class="hero-actions">
+        <a href="dashboard.html" class="btn btn-primary">Mulai</a>
+        <a href="docs.html" class="btn btn-outline">Lihat Dokumentasi</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat"><b id="statEndpoints">22</b><span>Endpoint tersedia</span></div>
+        <div class="hstat"><b id="statCategories">3</b><span>Kategori layanan</span></div>
+        <div class="hstat"><b>Gratis</b><span>Tanpa API key</span></div>
+      </div>
+
+      <div class="cat-row" id="kategori">
+        <a class="cat-chip" href="docs.html?cat=download">Download</a>
+        <a class="cat-chip" href="docs.html?cat=ai">AI</a>
+        <a class="cat-chip" href="docs.html?cat=system">Sistem</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" data-reveal>
+      <div class="term" id="term">
+        <div class="term-bar">
+          <div class="term-tabs" role="group" aria-label="Pilih package manager">
+            <p type="text">@shzpay studio</p>
+             </div>
+          <button type="button" class="term-copy" id="termCopy" aria-live="polite">Salin</button>
+        </div>
+        <div class="term-body" role="img" aria-label="Memasang paket @shzpay/api, lalu respons berisi pesan Hello visitor, status online, dan fitur active">
+          <div class="tl tl-cmd"><span class="t-prompt">$</span> <span id="termCmd">npm install @shzpay/api</span><span class="caret is-off" id="termCaret"></span></div>
+          <div class="tl" id="termOut" data-step>added 1 package in 2s</div>
+          <div class="tl tl-gap" data-step>{</div>
+          <div class="tl ind" data-step><span class="t-key">"message"</span>: <span class="t-str">"Hello visitor"</span>,</div>
+          <div class="tl ind" data-step><span class="t-key">"status"</span>: <span class="t-ok">"online"</span>,</div>
+          <div class="tl ind" data-step><span class="t-key">"features"</span>: <span class="t-ok">"active"</span>,</div>
+          <div class="tl ind" data-step><span class="t-key">"endpoints"</span>: <span class="t-num" id="termEndpoints">22</span></div>
+          <div class="tl" data-step>}</div>
+          <div class="tl tl-gap" data-step><span class="t-prompt">$</span> <span class="caret"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>&copy; 2026 SHZPAY. Dibuat oleh muhmdtamam.</p>
+  </div>
+</footer>
+
+<div class="fab-gratitude" id="fabGratitude" role="button" tabindex="0" aria-label="Kredit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="10.2" y="3.6" width="3.6" height="11" rx="1.8"></rect><circle cx="12" cy="18.6" r="2"></circle></svg></div>
+
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/landing.js"></script>
+<script src="assets/js/fab-gratitude.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+:root {
+    --white: #ffffff;
+    --ink: #0b0b14;
+    --ink-soft: #5b5c6f;
+    --ink-faint: #9394a8;
+    --surface: #f5f6fb;
+    --border: #e6e7f2;
+
+    --indigo: #0284c7;
+    --indigo-dark: #075985;
+    --indigo-soft: #e0f2fe;
+    --mint: #06b6d4;
+    --mint-soft: #cffafe;
+
+    --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "Inter", ui-sans-serif, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --shadow-sm: 0 1px 2px rgba(11,11,20,0.05);
+    --shadow-md: 0 8px 20px -12px rgba(2,132,199,0.35);
+    --shadow-lg: 0 26px 60px -24px rgba(11,11,20,0.3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: var(--font-display); margin: 0; }
+  p { margin: 0; color: var(--ink-soft); }
+  a { color: inherit; text-decoration: none; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; width: 100%; }
+  .mono { font-family: var(--font-mono); }
+
+  :focus-visible { outline: 2px solid var(--indigo); outline-offset: 3px; border-radius: 4px; }
+
+  .bg-grid {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(2,132,199,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(2,132,199,0.05) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 0.92rem;
+    border: 1px solid transparent; white-space: nowrap;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--indigo); color: var(--white); }
+  .btn-primary:hover { background: var(--indigo-dark); }
+  .btn-outline { border-color: var(--border); background: var(--white); }
+  .btn-outline:hover { border-color: var(--indigo); color: var(--indigo); }
+
+  
+  .nav { flex: 0 0 auto; border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 9px; }
+  .brand-mark {
+    width: 24px; height: 24px; border-radius: 7px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--indigo), var(--mint));
+    position: relative;
+  }
+  .brand-mark::after {
+    content: ""; position: absolute; inset: 5px; background: var(--white); border-radius: 2px;
+    clip-path: polygon(0 0, 60% 0, 100% 40%, 100% 100%, 40% 100%, 0 60%);
+  }
+  .brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; }
+  .nav-links { display: flex; align-items: center; gap: 26px; font-size: 0.88rem; font-weight: 500; color: var(--ink-soft); }
+  .nav-links a { position: relative; transition: color 0.2s var(--ease); }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { display: flex; align-items: center; gap: 10px; }
+  .nav-cta .btn { padding: 9px 18px; font-size: 0.86rem; }
+
+  
+  .hero { flex: 1 1 auto; display: flex; align-items: center; min-height: 0; padding: 28px 0; }
+  .hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; width: 100%; }
+
+  .eyebrow {
+    display: block; font-size: 0.84rem; font-weight: 500; color: var(--ink-faint); margin: 0 0 14px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.16; margin-bottom: 16px;
+  }
+  .hero-sub { font-size: 0.98rem; max-width: 480px; margin-bottom: 22px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+
+  .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+  .hstat { display: flex; flex-direction: column; }
+  .hstat b { font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); }
+  .hstat span { font-size: 0.76rem; color: var(--ink-faint); }
+
+  .cat-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+  .cat-chip {
+    font-size: 0.8rem; color: var(--ink-soft); background: var(--surface);
+    border: 1px solid var(--border); padding: 7px 14px; border-radius: 8px;
+    transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .cat-chip:hover { border-color: var(--indigo); color: var(--indigo-dark); }
+
+  .hero-visual { position: relative; width: 100%; max-width: 460px; margin: 0 0 0 auto; }
+
+  /* Hitam netral, tanpa bayangan besar dan tanpa titik warna ala macOS. Bar atas dipakai untuk pilihan package manager dan tombol salin. */
+  .term {
+    --term-bg: #0d0d0f;
+    --term-line: rgba(255,255,255,0.09);
+    --term-dim: #9b9ca7;
+    --term-accent: #7dd3fc;
+    background: var(--term-bg); border: 1px solid #202026; border-radius: 10px; overflow: hidden;
+  }
+  .term-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    padding: 6px 8px; border-bottom: 1px solid var(--term-line);
+  }
+  .term-tabs { display: flex; gap: 2px; }
+  .term-tab, .term-copy {
+    font-family: var(--font-body); font-size: 0.78rem; font-weight: 500; color: var(--term-dim);
+    background: transparent; border: 0; border-radius: 6px; padding: 7px 11px;
+    transition: color 0.15s var(--ease), background 0.15s var(--ease);
+  }
+  .term-tab:hover, .term-copy:hover { color: #ffffff; background: rgba(255,255,255,0.06); }
+  .term-tab[aria-pressed="true"] { color: #ffffff; background: rgba(255,255,255,0.1); }
+  .term-copy { min-width: 5.6em; }
+  .term :focus-visible { outline: 2px solid var(--term-accent); outline-offset: -2px; }
+
+  .term-body { padding: 18px 18px 20px; }
+  .tl {
+    font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.75;
+    color: var(--term-dim); white-space: pre-wrap; overflow-wrap: anywhere;
+  }
+  .tl-cmd { color: #ffffff; }
+  .tl.ind { padding-left: 2ch; }
+  .tl-gap { margin-top: 14px; }
+  .tl-cmd + .tl { margin-top: 2px; }
+  .t-prompt { color: var(--term-accent); }
+  .t-key { color: #b9bcc8; }
+  .t-str { color: #f4f4f6; }
+  .t-ok { color: #86efac; }
+  .t-num { color: var(--term-accent); }
+
+  .caret {
+    display: inline-block; width: 0.55em; height: 1.05em; margin-left: 1px;
+    background: var(--term-accent); vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  /* Baris yang belum muncul tetap menempati ruangnya, jadi tinggi kotak tidak melompat saat animasi berjalan. */
+  .is-off { visibility: hidden; }
+
+  .footer { flex: 0 0 auto; border-top: 1px solid var(--border); }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 48px; font-size: 0.78rem; color: var(--ink-faint); gap: 12px; flex-wrap: wrap;
+  }
+  .footer-links { display: flex; gap: 18px; }
+  .footer-links a { transition: color 0.2s var(--ease); }
+  .footer-links a:hover { color: var(--indigo); }
+
+  
+  [data-reveal] { opacity: 0; transition: opacity 0.4s var(--ease); }
+  [data-reveal].is-visible { opacity: 1; }
+
+  
+  @media (max-width: 1024px) {
+    .hero-inner { gap: 28px; }
+  }
+  @media (max-width: 900px) {
+    body { display: block; }
+    .hero { min-height: 0; }
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .hero-visual { order: -1; max-width: 460px; margin: 0 auto 32px; width: 100%; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 18px; }
+    .hero { padding: 22px 0; }
+    .hero-title { font-size: 1.55rem; }
+    .hero-sub { font-size: 0.92rem; }
+    .hero-stats { gap: 20px; }
+    .term-body { padding: 16px 14px 18px; }
+    .term-tab, .term-copy { padding: 9px 12px; }
+    .footer-inner { justify-content: center; text-align: center; height: auto; padding: 10px 0; }
+    .footer-links { gap: 14px; }
+  }

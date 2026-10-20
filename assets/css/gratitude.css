@@ -1,0 +1,144 @@
+:root {
+    --white: #ffffff;
+    --ink: #0b0b14;
+    --ink-soft: #5b5c6f;
+    --ink-faint: #9394a8;
+    --surface: #f5f6fb;
+    --border: #e6e7f2;
+    --indigo: #0284c7;
+    --indigo-dark: #075985;
+    --indigo-soft: #e0f2fe;
+    --mint: #06b6d4;
+    --mint-soft: #cffafe;
+    --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "Inter", ui-sans-serif, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --shadow-sm: 0 1px 2px rgba(11,11,20,0.05);
+    --shadow-md: 0 16px 36px -18px rgba(11,11,20,0.22);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-body);
+    line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; position: relative;
+  }
+  a { text-decoration: none; color: inherit; }
+  p { color: var(--ink-soft); margin: 0; }
+  h1, h2 { font-family: var(--font-display); margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  .bg-grid {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(2,132,199,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(2,132,199,0.05) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  .top { padding: 26px 0; }
+  .brand { display: inline-flex; align-items: center; gap: 9px; }
+  .brand-mark {
+    width: 24px; height: 24px; border-radius: 7px; position: relative;
+    background: linear-gradient(135deg, var(--indigo), var(--mint));
+  }
+  .brand-mark::after {
+    content: ""; position: absolute; inset: 5px; background: var(--white); border-radius: 2px;
+    clip-path: polygon(0 0, 60% 0, 100% 40%, 100% 100%, 40% 100%, 0 60%);
+  }
+  .brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; }
+
+  .hero { text-align: center; padding: 56px 0 48px; }
+  .eyebrow {
+    display: block; font-size: 0.84rem; font-weight: 500;
+    color: var(--ink-faint); margin: 0 0 14px;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero p { font-size: 1rem; max-width: 520px; margin: 0 auto; }
+
+  .section { padding: 40px 0; border-top: 1px solid var(--border); }
+  .section-label {
+    font-size: 0.84rem; font-weight: 600;
+    color: var(--ink-faint); margin-bottom: 4px;
+  }
+  .section-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 22px; }
+
+  .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .people-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px 14px;
+    transition: border-color 0.25s var(--ease);
+  }
+  .people-card:hover { border-color: var(--indigo); }
+
+  .people-avatar {
+    width: 44px; height: 44px; border-radius: 50%; margin: 0 0 12px;
+    background: linear-gradient(135deg, var(--indigo), var(--mint));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-family: var(--font-display); font-weight: 700; font-size: 0.92rem;
+  }
+  .people-avatar svg { width: 20px; height: 20px; }
+
+  .people-name { font-size: 0.86rem; font-weight: 600; color: var(--ink); }
+  .people-role { font-size: 0.72rem; color: var(--ink-faint); margin-top: 2px; }
+
+  .contrib-list { display: flex; flex-direction: column; gap: 10px; }
+  .contrib-item {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+  }
+  a.contrib-item { cursor: pointer; }
+  a.contrib-item:hover { border-color: var(--indigo); background: var(--white); }
+
+  .contrib-avatar {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    background: var(--ink); color: var(--white); box-sizing: border-box;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-weight: 700; font-size: 0.78rem;
+  }
+  .contrib-avatar.gh-icon { padding: 8px; }
+  .contrib-avatar svg { width: 100%; height: 100%; }
+
+  .contrib-name { font-family: var(--font-mono); font-size: 0.88rem; color: var(--ink); display: flex; align-items: center; gap: 6px; }
+  .contrib-name .gh-arrow { opacity: 0; transform: translateX(-3px); transition: opacity 0.2s var(--ease), transform 0.2s var(--ease); color: var(--indigo); }
+  a.contrib-item:hover .gh-arrow { opacity: 1; transform: translateX(0); }
+  .contrib-item.no-link { opacity: 0.75; }
+  .contrib-item.no-link .contrib-avatar { background: var(--ink-faint); }
+
+  .closing { text-align: center; padding: 44px 0 24px; }
+  .closing p { font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); font-weight: 600; }
+
+  .foot { text-align: center; padding: 24px 0 48px; }
+  .foot p { font-size: 0.78rem; color: var(--ink-faint); }
+  .foot a {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
+    font-size: 0.84rem; font-weight: 600; color: var(--indigo);
+    padding: 10px 18px; border: 1px solid var(--border); border-radius: 10px;
+    transition: border-color 0.2s var(--ease);
+  }
+  .foot a:hover { border-color: var(--indigo); }
+
+  [data-reveal] { opacity: 0; transition: opacity 0.4s var(--ease); }
+  [data-reveal].is-visible { opacity: 1; }
+
+  @media (max-width: 560px) {
+    .people-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero { padding: 40px 0 36px; }
+    .section { padding: 32px 0; }
+  }

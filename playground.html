@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{if(localStorage.getItem('shzpay-theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coba API — SHZPAY</title>
+<meta name="description" content="Coba endpoint SHZPAY langsung dari browser tanpa perlu menulis kode.">
+
+<meta property="og:title" content="Coba API — SHZPAY">
+<meta property="og:description" content="Coba endpoint SHZPAY langsung dari browser tanpa perlu menulis kode.">
+<meta property="og:image" content="assets/img/foto.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Coba API — SHZPAY">
+<meta name="twitter:image" content="assets/img/foto.webp">
+<link rel="icon" type="image/svg+xml" href="assets/img/icon.svg">
+<link rel="alternate icon" href="assets/img/icon.svg">
+<link rel="mask-icon" href="assets/img/icon.svg" color="#0284c7">
+<link rel="apple-touch-icon" href="assets/img/icon.svg">
+<link rel="shortcut icon" href="assets/img/icon.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/shell-extra.css">
+<link rel="stylesheet" href="assets/css/playground.css">
+<link rel="stylesheet" href="assets/css/fab-gratitude.css">
+<link rel="stylesheet" href="assets/css/loader.css">
+</head>
+<body>
+<div class="page-loader" id="pageLoader" aria-hidden="true">
+  <div class="loader-mark">
+    <svg viewBox="0 0 24 24">
+      <defs>
+        <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0284c7"></stop>
+          <stop offset="100%" stop-color="#06b6d4"></stop>
+        </linearGradient>
+      </defs>
+      <rect width="24" height="24" rx="7" fill="url(#loaderGrad)"></rect>
+      <path d="M5 5 L13.4 5 L19 10.6 L19 19 L10.6 19 L5 13.4 Z" fill="#ffffff"></path>
+    </svg>
+  </div>
+  <div class="loader-waves">
+    <svg class="loader-wave loader-wave-back" viewBox="0 0 2400 120" preserveAspectRatio="none">
+      <path d="M0,50 C37.5,30 112.5,30 150,50 C187.5,70 262.5,70 300,50 C337.5,30 412.5,30 450,50 C487.5,70 562.5,70 600,50 C637.5,30 712.5,30 750,50 C787.5,70 862.5,70 900,50 C937.5,30 1012.5,30 1050,50 C1087.5,70 1162.5,70 1200,50 C1237.5,30 1312.5,30 1350,50 C1387.5,70 1462.5,70 1500,50 C1537.5,30 1612.5,30 1650,50 C1687.5,70 1762.5,70 1800,50 C1837.5,30 1912.5,30 1950,50 C1987.5,70 2062.5,70 2100,50 C2137.5,30 2212.5,30 2250,50 C2287.5,70 2362.5,70 2400,50 L2400,120 L0,120 Z"></path>
+    </svg>
+    <svg class="loader-wave loader-wave-front" viewBox="0 0 2400 120" preserveAspectRatio="none">
+      <path d="M0,60 C37.5,40 112.5,40 150,60 C187.5,80 262.5,80 300,60 C337.5,40 412.5,40 450,60 C487.5,80 562.5,80 600,60 C637.5,40 712.5,40 750,60 C787.5,80 862.5,80 900,60 C937.5,40 1012.5,40 1050,60 C1087.5,80 1162.5,80 1200,60 C1237.5,40 1312.5,40 1350,60 C1387.5,80 1462.5,80 1500,60 C1537.5,40 1612.5,40 1650,60 C1687.5,80 1762.5,80 1800,60 C1837.5,40 1912.5,40 1950,60 C1987.5,80 2062.5,80 2100,60 C2137.5,40 2212.5,40 2250,60 C2287.5,80 2362.5,80 2400,60 L2400,120 L0,120 Z"></path>
+    </svg>
+  </div>
+</div>
+<script src="assets/js/loader.js"></script>
+
+
+<div class="sb-overlay" id="sbOverlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">SHZPAY</span>
+  </div>
+
+    <nav class="sb-nav">
+    <p class="sb-group-label">Menu</p>
+    <a href="dashboard.html" class="sb-link">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg>
+      <span class="label">Ringkasan</span>
+    </a>
+    <a href="docs.html" class="sb-link">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      <span class="label">Dokumentasi</span>
+    </a>
+    <a href="playground.html" class="sb-link active" aria-current="page">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      <span class="label">Coba API</span>
+    </a>
+    <a href="policy.html" class="sb-link">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+      <span class="label">Kebijakan Penggunaan</span>
+    </a>
+
+    <p class="sb-group-label">Lainnya</p>
+    <a href="index.html" class="sb-link">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span class="label">Kembali ke Beranda</span>
+    </a>
+  </nav>
+
+  <div class="sb-plan">
+    <p class="label">Status Akses</p>
+    <p class="name">Publik dan gratis</p>
+    <p class="sb-plan-note">Semua endpoint terbuka untuk siapa saja, tanpa biaya.</p>
+  </div>
+
+  <a class="sb-whatsapp" href="https://whatsapp.com/channel/0029Vb8l8UxFXUuTmU0fWj2S" target="_blank" rel="noopener">
+    <span class="sb-whatsapp-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.97-.93-.26-.1-.46-.15-.65.15-.2.29-.75.93-.92 1.12-.17.2-.34.22-.63.08-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.2.05-.37-.02-.51-.08-.15-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.56-.01-.2 0-.51.07-.78.37-.26.29-1.02 1-1.02 2.42 0 1.43 1.04 2.82 1.19 3.01.15.2 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.11.56-.08 1.7-.7 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.12-.26-.19-.55-.34z"></path><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.87.51 3.63 1.4 5.14L2 22l4.98-1.31A9.95 9.95 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2zm0 18.18c-1.68 0-3.24-.5-4.55-1.36l-.33-.2-3.03.8.81-2.95-.21-.34a8.16 8.16 0 0 1-1.26-4.36c0-4.52 3.68-8.2 8.2-8.2s8.2 3.68 8.2 8.2-3.68 8.2-8.2 8.2z"></path></svg>
+    </span>
+    <div class="sb-whatsapp-text">
+      <b>Channel WhatsApp</b>
+      <span>Ikuti channel update kami</span>
+    </div>
+  </a>
+</aside>
+
+<div class="content">
+
+  <header class="topbar">
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    <div class="topbar-title">
+      <h1>Coba API</h1>
+      <p>Uji endpoint langsung dari web tanpa menulis kode.</p>
+    </div>
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="pgSearch" placeholder="Cari endpoint..." aria-label="Cari endpoint">
+    </div>
+    <button class="icon-btn" id="themeToggle" aria-label="Ganti tema terang/gelap">
+      <svg class="theme-icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <svg class="theme-icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    </button>
+  </header>
+
+  <main class="main">
+
+        <div class="poster" data-reveal>
+      <img src="assets/img/foto.webp" alt="Poster SHZPAY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="poster-fallback" style="display:none;">SHZPAY API</div>
+    </div>
+
+        <div class="panel panel-pad auth-note" data-reveal>
+      <div class="auth-note-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      </div>
+      <div>
+        <b>Dua cara mencoba</b>
+        <p><b class="mono" style="color:var(--mint);">Kirim ke server</b> mengirim permintaan sungguhan ke <span class="mono" id="pgHost">api.shzpay.biz.id</span>, jadi hasilnya bergantung pada server yang aktif. <b class="mono" style="color:var(--indigo);">Lihat contoh respons</b> hanya menampilkan contoh dari dokumentasi tanpa menghubungi server.</p>
+      </div>
+    </div>
+
+        <div class="pg-layout">
+
+            <div class="panel pg-list-panel" data-reveal>
+        <ul class="pg-list" id="pgList"></ul>
+      </div>
+
+            <div class="panel panel-pad pg-run-panel" data-reveal id="pgRunPanel">
+              </div>
+
+    </div>
+
+  </main>
+</div>
+
+<div class="fab-gratitude" id="fabGratitude" role="button" tabindex="0" aria-label="Kredit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="10.2" y="3.6" width="3.6" height="11" rx="1.8"></rect><circle cx="12" cy="18.6" r="2"></circle></svg></div>
+
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/playground.js"></script>
+<script src="assets/js/fab-gratitude.js"></script>
+</body>
+</html>

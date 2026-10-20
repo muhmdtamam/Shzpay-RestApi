@@ -1,0 +1,102 @@
+:root {
+    --white: #ffffff;
+    --ink: #0b0b14;
+    --ink-soft: #5b5c6f;
+    --ink-faint: #9394a8;
+    --surface: #f5f6fb;
+    --border: #e6e7f2;
+    --indigo: #0284c7;
+    --indigo-dark: #075985;
+    --indigo-soft: #e0f2fe;
+    --mint: #06b6d4;
+    --mint-soft: #cffafe;
+    --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "Inter", ui-sans-serif, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --shadow-lg: 0 26px 60px -24px rgba(11,11,20,0.28);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-body);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 24px; overflow-x: hidden; position: relative;
+  }
+  a { text-decoration: none; color: inherit; }
+  p { color: var(--ink-soft); margin: 0; }
+
+  .bg-grid {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(2,132,199,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(2,132,199,0.05) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 40%, transparent 100%);
+  }
+
+  .brand { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 46px; }
+  .brand-mark {
+    width: 26px; height: 26px; border-radius: 7px; position: relative;
+    background: linear-gradient(135deg, var(--indigo), var(--mint));
+  }
+  .brand-mark::after {
+    content: ""; position: absolute; inset: 5px; background: var(--white); border-radius: 2px;
+    clip-path: polygon(0 0, 60% 0, 100% 40%, 100% 100%, 40% 100%, 0 60%);
+  }
+  .brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; }
+
+  .code-wrap { position: relative; margin-bottom: 8px; }
+  .code {
+    font-family: var(--font-display); font-weight: 700; font-size: clamp(5rem, 18vw, 9rem);
+    line-height: 1; letter-spacing: -0.03em; color: var(--ink);
+  }
+
+  .terminal-mini {
+    display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: #d7d8ff;
+    font-family: var(--font-mono); font-size: 0.82rem; padding: 10px 16px; border-radius: 10px;
+    margin: 22px 0 26px; box-shadow: var(--shadow-lg);
+  }
+  .terminal-mini .prompt { color: var(--mint); }
+  .terminal-mini .status { color: #ff8a8a; }
+  .terminal-mini .caret { color: var(--mint); animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  h1 { font-family: var(--font-display); font-size: 1.4rem; margin: 0 0 10px; }
+  .desc { font-size: 0.94rem; max-width: 420px; margin: 0 auto 30px; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px;
+    font-weight: 600; font-size: 0.92rem; border: 1px solid transparent;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--indigo); color: var(--white); }
+  .btn-primary:hover { background: var(--indigo-dark); }
+  .btn-outline { border-color: var(--border); background: var(--white); }
+  .btn-outline:hover { border-color: var(--indigo); color: var(--indigo); }
+
+  .quick-links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .quick-links a {
+    font-size: 0.78rem; color: var(--ink-soft); background: var(--surface); border: 1px solid var(--border);
+    padding: 7px 13px; border-radius: 8px; transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .quick-links a:hover { border-color: var(--indigo); color: var(--indigo-dark); }
+
+  [data-reveal] { opacity: 0; transition: opacity 0.4s var(--ease); }
+  [data-reveal].is-visible { opacity: 1; }
+
+  @media (max-width: 480px) {
+    .actions { flex-direction: column; width: 100%; max-width: 280px; }
+    .btn { width: 100%; }
+  }
