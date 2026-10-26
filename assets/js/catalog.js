@@ -3,6 +3,7 @@
   Mengikuti backend shzpay-api (server.js):
     GET  /download/<platform>?q=<url>[&method=<scraper>]
     GET  /ai/gemini?text=<pesan>[&system=][&sessionId=]
+    GET  /ai/qwen-edit?prompt=<instruksi>&url=<link gambar>
     POST /ai/gemini  (body JSON: text, system, sessionId)
     GET  /health, GET /
   Domain pada contoh respons memakai example.com sebagai placeholder.
@@ -176,6 +177,18 @@
         downloads: [{ type: 'file', filename: 'berkas.zip', size: '12.4 MB', quality: 'Direct Download', url: 'https://example.com/terabox/berkas.zip' }] }
     },
     {
+      id: 'ucshare', label: 'UC Share',
+      desc: 'Mengambil daftar video beserta tautan putar langsung dari tautan share UC Share, termasuk video di dalam folder.',
+      example: 'https://uc-share.com/s/abc123xyz',
+      methods: ['ucshare'],
+      note: 'Share yang memakai kode akses: tambahkan ?pwd=<kode> pada tautan. Maksimal 30 video per permintaan, dan respons memuat truncated bila isi share lebih banyak.',
+      result: { title: 'Nama share', type: 'share', fileCount: 2,
+        downloads: [
+          { type: 'video', filename: 'video-1.mp4', quality: '1920x1080', size: '48.20 MB', sizeBytes: 50540000, duration: '2:15', url: 'https://example.com/ucshare/video-1.m3u8' },
+          { type: 'video', filename: 'video-2.mp4', quality: '1280x720', size: '20.10 MB', sizeBytes: 21074000, duration: '1:02:05', url: 'https://example.com/ucshare/video-2.m3u8' }
+        ] }
+    },
+    {
       id: 'resolver', label: 'Resolver',
       desc: 'Mengubah tautan berkas atau shortlink menjadi tautan unduhan langsung. Scraper dipilih otomatis dari domain tautan, dan tautan lain diperlakukan sebagai shortlink biasa (unshorten).',
       example: 'https://www.mediafire.com/file/w4b1fjoijyug9qz/nix.py',
@@ -236,6 +249,17 @@
       note: GEMINI_NOTE + ' Body berupa teks biasa juga diterima dan dianggap sebagai isi pesan.'
     },
     {
+      id: 'qwen-edit', method: 'GET', cat: 'ai', path: '/ai/qwen-edit',
+      desc: 'Mengedit gambar dengan AI (Qwen Image Edit) berdasarkan instruksi teks, lalu mengembalikan link gambar hasil edit.',
+      params: [
+        { name: 'prompt', type: 'string', required: true, desc: 'Instruksi edit, misalnya mengganti background atau gaya gambar.', example: 'ubah background menjadi pantai saat sunset' },
+        { name: 'url', type: 'string', required: true, desc: 'Link gambar publik (JPG, PNG, atau WEBP, maksimal 8 MB).', example: 'https://example.com/foto.jpg' }
+      ],
+      response: ok({ url: 'https://example.com/gradio_api/file=/tmp/gradio/hasil.webp', prompt: 'ubah background menjadi pantai saat sunset' }),
+      errorMessage: 'Parameter prompt wajib diisi. Contoh: /ai/qwen-edit?prompt=ubah background jadi biru&url=<link gambar>',
+      note: 'Proses bisa memakan 10 sampai 60 detik. Link hasil bersifat sementara, unduh dan simpan segera. Untuk gambar dari perangkat, kirim POST JSON dengan field image berisi data URI base64.'
+    },
+    {
       id: 'health', method: 'GET', cat: 'system', path: '/health',
       desc: 'Memeriksa apakah server aktif dan sudah berjalan berapa detik.',
       params: [],
@@ -250,7 +274,10 @@
         name: 'shzpay-api',
         usage: '/download/<platform>?q=<url>',
         optional: '&method=<scraper> untuk memilih scraper tertentu',
-        ai: { gemini: '/ai/gemini?text=<pesan>[&system=<instruksi>][&sessionId=<id>] (bisa juga POST JSON)' },
+        ai: {
+          gemini: '/ai/gemini?text=<pesan>[&system=<instruksi>][&sessionId=<id>] (bisa juga POST JSON)',
+          'qwen-edit': '/ai/qwen-edit?prompt=<instruksi>&url=<link gambar> (POST JSON: prompt, url atau image data URI)'
+        },
         aliases: { tt: 'tiktok', ig: 'instagram', x: 'twitter', fb: 'facebook', yt: 'youtube' },
         platforms: { tiktok: ['snaptik', 'tiktokio', '...'], youtube: ['ytmp3', 'ytmp3gg', 'playlist'] }
       }),
